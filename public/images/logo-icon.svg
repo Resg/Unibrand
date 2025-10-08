@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="200" height="200">
+  <defs>
+    <style>
+      .c{fill:#0AAFDC}
+      .w{fill:#fff}
+    </style>
+  </defs>
+  <!-- Cyan circle -->
+  <circle cx="50" cy="50" r="48" class="c"/>
+  <!-- Left white vertical bar -->
+  <rect x="14" y="10" width="10" height="80" class="w"/>
+  <!-- Inner white circle to form 'Ю' hole -->
+  <circle cx="48" cy="50" r="22" class="w"/>
+</svg>

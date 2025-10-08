@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="72" viewBox="0 0 420 72">
+  <defs>
+    <style>
+      .gray{ fill:#7D7D7D; }
+      .cyan{ fill:#0AAFDC; }
+      .tt{ font-family: Montserrat, Inter, Arial, sans-serif; font-size: 40px; dominant-baseline: central; }
+    </style>
+  </defs>
+  <!-- icon -->
+  <g transform="translate(0,6) scale(0.6)">
+    <circle cx="50" cy="50" r="48" class="cyan"/>
+    <rect x="14" y="10" width="10" height="80" fill="#ffffff"/>
+    <circle cx="48" cy="50" r="22" fill="#ffffff"/>
+  </g>
+  <!-- text -->
+  <text x="120" y="36" class="tt gray">ЮНИ</text>
+  <text x="210" y="36" class="tt cyan" font-weight="600">БРЕНД</text>
+</svg>

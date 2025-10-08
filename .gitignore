@@ -1,0 +1,41 @@
+# Dependency directories
+node_modules/
+vendor/
+bower_components/
+
+# Build artifacts
+dist/
+build/
+.cache/
+*.min.css.map
+*.min.js.map
+
+# Logs and temporary files
+*.log
+tmp/
+temp/
+.DS_Store # macOS specific
+Thumbs.db # Windows specific
+
+# Configuration files with sensitive data
+.env
+config.local.php
+config.development.js
+*.local.yml
+
+# IDE and editor files
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Uploaded files (if applicable)
+uploads/
+
+# Other common ignored files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.eslintcache
+.stylelintcache
