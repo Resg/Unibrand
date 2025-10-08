@@ -10,10 +10,6 @@
         "logo": "/images/brands/breesal.png"
       },
       {
-        "name": "Raptor",
-        "logo": "/images/brands/raptor.png"
-      },
-      {
         "name": "Gardex",
         "logo": "/images/brands/gardex.png"
       },
@@ -22,11 +18,11 @@
         "logo": "/images/brands/salton.png"
       },
       {
-        "name": "Salton Feet Only",
-        "logo": "/images/brands/salton-feetonly.png"
+        "name": "Feet Only",
+        "logo": "/images/brands/feet-only.png"
       },
       {
-        "name": "Salton Clean Tech",
+        "name": "Clean Tech",
         "logo": "/images/brands/salton-cleantech.png"
       },
       {
@@ -40,6 +36,14 @@
       {
         "name": "Forester",
         "logo": "/images/brands/forester.png"
+      },
+      {
+        "name": "Raptor",
+        "logo": "/images/brands/raptor.png"
+      },
+      {
+        "name": "Salton Feet Only",
+        "logo": "/images/brands/salton-feetonly.png"
       }
     ],
     "contacts": {
@@ -101,5 +105,6 @@
         "image": "/images/directions/fulfillment-photo.jpg"
       }
     }
-  }
+  },
+  "about": "ООО «ЮНИБРЕНД» — это не просто поставщик, это ваш стратегический партнёр в мире оптовой торговли. Мы соединяем производителей качественных товаров народного потребления с крупнейшими розничными сетями и маркетплейсами, обеспечивая безупречное качество и стабильные поставки. Наша миссия — делать повседневную жизнь миллионов потребителей комфортнее, а бизнес наших партнёров — успешнее и прибыльнее."
 }

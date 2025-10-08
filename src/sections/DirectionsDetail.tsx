@@ -1,39 +1,34 @@
-import { motion } from 'framer-motion'
-import type { Config, DirectionDetail } from '../types/config'
+import { useConfig } from '../store/hooks'
+import type { DirectionDetail } from '../types/config'
 
-function Block({ d }: { d: DirectionDetail }) {
-  return (
-    <section id={d.id} className="section-alt"><div className="mx-auto max-w-6xl px-6 py-16">
-      <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:items-center">
-        <div className="order-2 md:order-1">
-          <motion.h2 initial={{opacity:0,y:20}} whileInView={{opacity:1,y:0}} viewport={{once:true}} transition={{duration:.5}} className="text-3xl font-semibold text-brand">
-            {d.title}
-          </motion.h2>
-          {d.lead && <p className="mt-4 text-lg text-slate-700">{d.lead}</p>}
-          <motion.div initial={{opacity:0,y:20}} whileInView={{opacity:1,y:0}} viewport={{once:true}} transition={{duration:.5}} className="prose prose-slate mt-6 max-w-none">
-            {d.text.split('\n').map((p, idx) => <p key={idx}>{p}</p>)}
-            {d.bullets && d.bullets.length > 0 && (
-              <ul className="mt-4 list-disc pl-5">
-                {d.bullets.map((b, i) => <li key={i}>{b}</li>)}
-              </ul>
-            )}
-          </motion.div>
-        </div>
-        <div className="order-1 md:order-2">
-          {d.image && <img src={d.image} alt={d.title} className="w-full rounded-2xl object-cover shadow" />}
-        </div>
-      </div>
-    </div></section>
-  )
-}
-
-export default function DirectionsDetail({ config }: {config: Config}) {
+export default function DirectionsDetail() {
+  const config = useConfig()!
   const dd = config.sections.directionsDetail
+  const items: DirectionDetail[] = [dd.trade, dd.logistics, dd.fulfillment]
+
   return (
-    <>
-      <Block d={dd.trade} />
-      <Block d={dd.logistics} />
-      <Block d={dd.fulfillment} />
-    </>
+    <section id="directions-detail" className="section-alt">
+      <div className="mx-auto max-w-6xl px-6 py-16 space-y-16">
+        {items.map((item, i) => (
+          <div key={item.id} className="grid grid-cols-1 gap-8 md:grid-cols-2 md:items-center">
+            <div className={i % 2 === 0 ? 'order-2 md:order-1' : 'order-2'}>
+              <h2 className="text-3xl font-semibold text-brand">{item.title}</h2>
+              {item.lead && <p className="mt-3 text-lg text-slate-700">{item.lead}</p>}
+              <div className="prose prose-slate mt-4 max-w-none">
+                {item.text.split('\n').map((p, idx) => <p key={idx}>{p}</p>)}
+                {!!item.bullets?.length && (
+                  <ul className="mt-4 list-disc pl-5">
+                    {item.bullets.map((b, j) => <li key={j}>{b}</li>)}
+                  </ul>
+                )}
+              </div>
+            </div>
+            <div className={i % 2 === 0 ? 'order-1 md:order-2' : 'order-1'}>
+              {item.image && <img src={item.image} alt={item.title} className="w-full rounded-2xl object-cover shadow" />}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
   )
 }

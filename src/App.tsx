@@ -1,36 +1,34 @@
-import { useEffect, useState } from 'react'
 import Header from './sections/Header'
 import Hero from './sections/Hero'
-import About from './sections/About'
 import DirectionsOverview from './sections/DirectionsOverview'
 import DirectionsDetail from './sections/DirectionsDetail'
 import Brands from './sections/Brands'
 import Contacts from './sections/Contacts'
 import Footer from './sections/Footer'
-import type { Config } from './types/config'
+import About from './sections/About'
+import { useConfig, useConfigStatus } from './store/hooks'
 
 export default function App() {
-  const [config, setConfig] = useState<Config | null>(null)
+  const status = useConfigStatus()
+  const config = useConfig()
 
-  useEffect(() => {
-    fetch('/config.json')
-      .then((res) => res.json())
-      .then((data) => setConfig(data))
-      .catch((err) => console.error('Config load error', err))
-  }, [])
-
-  if (!config) return <div className="p-10 text-center text-slate-400">Загрузка...</div>
+  if (status === 'loading' || !config) {
+    return <div className="min-h-screen flex items-center justify-center text-slate-500">Загрузка…</div>
+  }
+  if (status === 'failed') {
+    return <div className="min-h-screen flex items-center justify-center text-red-600">Ошибка загрузки конфигурации</div>
+  }
 
   return (
     <main className="min-h-screen">
       <Header />
-      <Hero config={config} />
-      <About config={config} />
-      <DirectionsOverview config={config} />
-      <DirectionsDetail config={config} />
-      <Brands config={config} />
-      <Contacts config={config} />
-      <Footer config={config} />
+      <Hero />
+      <About />
+      <DirectionsOverview />
+      <DirectionsDetail />
+      <Brands />
+      <Contacts />
+      <Footer />
     </main>
   )
 }

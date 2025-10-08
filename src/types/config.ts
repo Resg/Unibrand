@@ -1,29 +1,48 @@
-export interface DirectionDetail {
-  id: 'trade' | 'logistics' | 'fulfillment'
+export type DirectionID = 'trade' | 'logistics' | 'fulfillment'
+
+export interface DirectionOverviewItem {
+  id: DirectionID
   title: string
+  image: string
   lead?: string
-  text: string
-  bullets?: string[]
-  image?: string
 }
 
-export interface Brand { name: string; logo: string }
-export interface Contacts { phone: string; email: string; address?: string; hours?: string }
+export interface DirectionDetail {
+  id: DirectionID
+  title: string
+  image: string
+  text: string
+  lead?: string
+  bullets?: string[]
+}
+
+export interface Brand {
+  name: string
+  logo: string
+}
+
+export interface Contacts {
+  phone: string
+  email: string
+  address: string
+  hours: string
+}
+
+export interface Sections {
+  directionsOverview: { items: DirectionOverviewItem[] }
+  directionsDetail: {
+    trade: DirectionDetail
+    logistics: DirectionDetail
+    fulfillment: DirectionDetail
+  }
+  brands: Brand[]
+  contacts: Contacts
+}
 
 export interface Config {
-  companyName: string;
-  tagline: string;
-  aboutShort: string;
-  sections: {
-    about: string;
-    directionsOverview: { items: Array<{ id: 'trade' | 'logistics' | 'fulfillment'; title: string; image: string; lead?: string }> };
-    directionsDetail: {
-      trade: DirectionDetail;
-      logistics: DirectionDetail;
-      fulfillment: DirectionDetail;
-    };
-    brands: Brand[];
-    contacts: Contacts;
-    contactsText: string;
-  };
+  companyName: string
+  tagline: string
+  aboutShort: string
+  about: string
+  sections: Sections
 }
