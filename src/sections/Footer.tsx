@@ -1,3 +1,4 @@
+import { useConfig } from '../store/hooks'
 import React from 'react'
 
 export default function Footer() {
@@ -8,7 +9,7 @@ export default function Footer() {
                 {/* Навигация */}
                 <div>
                     <h3 className="font-semibold text-slate-900 mb-2">Навигация</h3>
-                    <ul className="space-y-1 text-sm leading-relaxed">
+                    <ul className="space-y-1 text-sm  list-disc leading-relaxed pl-5">
                         <li><a href="#about" className="hover:text-brand">О компании</a></li>
                         <li><a href="#directions" className="hover:text-brand">Направления</a></li>
                         <li><a href="#brands" className="hover:text-brand">Бренды</a></li>
@@ -19,11 +20,9 @@ export default function Footer() {
                 {/* Контакты — шире, чтобы адрес меньше переносился */}
                 <div className="min-w-[340px]">
                     <h3 className="font-semibold text-slate-900 mb-2">Контакты</h3>
-                    <p className="text-sm leading-snug">
-                        <strong>Телефон:</strong> 8 (495) 363 03 50<br />
-                        <strong>Почта:</strong>{' '}
-                        <a href="mailto:info@unibrand.ru" className="text-brand hover:underline">info@unibrand.ru</a><br />
-                        <strong>Адрес:</strong> г. Москва, Муниципальный округ Можайский, территория Сколково инновационного центра, Большой бульвар, д. 40, этаж 5, ком. 128
+                    <p className="text-sm leading-snug mt-1">Телефон: 8 (495) 363 03 50</p>
+                    <p  className="text-sm leading-snug mt-1">Почта: <a href="mailto:info@unibrand.ru" className="text-brand hover:underline">info@unibrand.ru</a></p>
+                    <p  className="text-sm leading-snug mt-1">Адрес: г. Москва, Муниципальный округ Можайский, территория Сколково инновационного центра, Большой бульвар, д. 40, этаж 5, ком. 128
                     </p>
                 </div>
 

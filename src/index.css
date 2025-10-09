@@ -1,56 +1,6 @@
-html { scroll-behavior: smooth; }
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Local Fonts */
-@font-face { font-family: 'Inter'; src: url('/fonts/Inter-Regular.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
-@font-face { font-family: 'Inter'; src: url('/fonts/Inter-Medium.woff2') format('woff2'); font-weight: 500; font-style: normal; font-display: swap; }
-@font-face { font-family: 'Inter'; src: url('/fonts/Inter-SemiBold.woff2') format('woff2'); font-weight: 600; font-style: normal; font-display: swap; }
-@font-face { font-family: 'Montserrat'; src: url('/fonts/Montserrat-SemiBold.woff2') format('woff2'); font-weight: 600; font-style: normal; font-display: swap; }
-@font-face { font-family: 'Montserrat'; src: url('/fonts/Montserrat-Bold.woff2') format('woff2'); font-weight: 700; font-style: normal; font-display: swap; }
-
-:root { color-scheme: light; }
-body { font-family: theme('fontFamily.inter'); color: theme('colors.mute'); }
-h1,h2,h3 { font-family: theme('fontFamily.mont'); }
-
-
-/* --- Visual enhancements --- */
-.hover-zoom { overflow: hidden; position: relative; }
-.hover-zoom img { transition: transform .45s ease, filter .45s ease; will-change: transform; }
-.hover-zoom:hover img { transform: scale(1.06); filter: brightness(0.85); }
-.hover-zoom .hover-dim { transition: background-color .45s ease; }
-.hover-zoom:hover .hover-dim { background-color: rgba(0,0,0,.2); }
-.brand-pattern {
-  background-image:
-    radial-gradient(circle at 12px 12px, rgba(10,175,220,.10) 2px, transparent 3px);
-  background-size: 24px 24px;
-}
-.section-alt { background: #F7FBFD; }
-.section-muted { background: #F9FAFB; }
-
-
-/* Accent underline for section titles (instead of blue backgrounds) */
-.section-title {
-  position: relative;
-  display: inline-block;
-  padding-bottom: .2rem;
-}
-.section-title::after {
-  content: "";
-  position: absolute;
-  left: 0; right: 0; bottom: 0;
-  height: 3px;
-  background: linear-gradient(90deg, rgba(0,0,0,.08), rgba(10,175,220,.35), rgba(0,0,0,.08));
-  border-radius: 9999px;
-}
-
-
-:root { --brand-blue: #0AAFDC; }
-.text-brand{ color: var(--brand-blue); }
-.bg-brand{ background: var(--brand-blue); }
-.border-brand{ border-color: var(--brand-blue); }
-.no-scrollbar::-webkit-scrollbar { display: none; }
-.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-
-html, body { font-family: Roboto, system-ui, -apple-system, 'Segoe UI', Arial, sans-serif; }
+/* Typography defaults for dark sections */
+.prose-invert ul { @apply list-disc pl-5; }

@@ -2,15 +2,16 @@ import { useConfig } from '../store/hooks'
 import React from 'react'
 
 export default function Contacts() {
+  
   const config = useConfig()!
   const c = config.sections.contacts
   return (
-    <section id="contacts" className="relative bg-cover bg-center py-20 text-white" style={{ backgroundImage: `url('/images/bg-map-skolkovo.jpg')` }}>
-      <div className="absolute inset-0 bg-black/60" />
-      <div className="relative z-10 mx-auto max-w-6xl px-6">
-        <h2 className="text-3xl font-semibold text-brand">Контакты</h2>
+    <section id="contacts" className="relative bg-cover bg-no-repeat text-white py-20" style={{ backgroundImage: `url('public${config.images.map}')` }}>
+      {/*<div className="absolute inset-0 bg-black/60"></div>*/}
+      <div className="relative z-10 mx-auto max-w-6xl p-6 md:bg-brand rounded-3xl">
+        <h2 className="text-3xl font-semibold text-slate-800 md:text-white">Контакты</h2>
         <div className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-2">
-          <div className="rounded-2xl bg-white/95 p-6 text-slate-800 shadow-lg backdrop-blur">
+          <div className="rounded-2xl bg-white p-6 text-slate-800 shadow-lg backdrop-blur">
             <ul className="divide-y divide-slate-200">
               <li className="flex items-start gap-4 py-4">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="h-6 w-6 shrink-0" fill="none" stroke="#0AAFDC" strokeWidth="1.8">
@@ -53,7 +54,7 @@ export default function Contacts() {
               </li>
             </ul>
           </div>
-          <div className="rounded-2xl bg-white/95 p-6 text-slate-800 shadow-lg backdrop-blur">
+          <div className="rounded-2xl bg-white p-6 text-slate-800 shadow-lg backdrop-blur">
             <h3 className="text-xl font-semibold text-slate-900">Обратная связь</h3>
             <form className="mt-4 space-y-4" onSubmit={(e) => e.preventDefault()}>
               <div>
