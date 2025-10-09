@@ -3,4 +3,16 @@
 @tailwind utilities;
 
 /* Typography defaults for dark sections */
-.prose-invert ul { @apply list-disc pl-5; }
+.prose-invert ul {
+  @apply list-disc pl-5;
+}
+
+/* Smooth scrolling for anchors */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Offset anchored sections to account for sticky header height */
+section[id] {
+  scroll-margin-top: 96px;
+}

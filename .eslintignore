@@ -1,0 +1,8 @@
+node_modules
+dist
+build
+/*.config.js
+/*.config.cjs
+/*.config.ts
+*.min.js
+vite.config.ts

@@ -1,4 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit'
+
 import config from './configSlice'
 
 export const store = configureStore({

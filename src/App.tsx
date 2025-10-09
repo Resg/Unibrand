@@ -1,11 +1,11 @@
-import Header from './sections/Header'
-import Hero from './sections/Hero'
-import DirectionsOverview from './sections/DirectionsOverview'
-import DirectionsDetail from './sections/DirectionsDetail'
+import About from './sections/About'
 import Brands from './sections/Brands'
 import Contacts from './sections/Contacts'
+import DirectionsDetail from './sections/DirectionsDetail'
+import DirectionsOverview from './sections/DirectionsOverview'
 import Footer from './sections/Footer'
-import About from './sections/About'
+import Header from './sections/Header'
+import Hero from './sections/Hero'
 import { useConfig, useConfigStatus } from './store/hooks'
 
 export default function App() {
@@ -13,10 +13,16 @@ export default function App() {
   const config = useConfig()
 
   if (status === 'loading' || !config) {
-    return <div className="min-h-screen flex items-center justify-center text-slate-500">Загрузка…</div>
+    return (
+      <div className="min-h-screen flex items-center justify-center text-slate-500">Загрузка…</div>
+    )
   }
   if (status === 'failed') {
-    return <div className="min-h-screen flex items-center justify-center text-red-600">Ошибка загрузки конфигурации</div>
+    return (
+      <div className="min-h-screen flex items-center justify-center text-red-600">
+        Ошибка загрузки конфигурации
+      </div>
+    )
   }
 
   return (

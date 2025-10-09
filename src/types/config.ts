@@ -45,5 +45,5 @@ export interface Config {
   aboutShort: string
   about: string
   sections: Sections
-    images: Record<string, string>
+  images: Record<string, string>
 }

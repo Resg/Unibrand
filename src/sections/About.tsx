@@ -7,7 +7,7 @@ export default function About() {
     <section id="about" className="mx-auto max-w-5xl px-6 py-16 text-center">
       <h2 className="text-3xl font-semibold text-brand">О компании</h2>
       <p className="mt-6 text-lg leading-relaxed whitespace-pre-line">
-        {config.about.replace('ООО «ЮНИБРЕНД»','ЮНИБРЕНД')}
+        {config.about.replace('ООО «ЮНИБРЕНД»', 'ЮНИБРЕНД')}
       </p>
     </section>
   )

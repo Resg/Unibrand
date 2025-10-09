@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit'
+
 import type { Config } from '../types/config'
 
 export interface ConfigState {
@@ -27,9 +28,11 @@ const slice = createSlice({
       state.status = 'succeeded'
     },
   },
-  extraReducers: (builder) => {
+  extraReducers: builder => {
     builder
-      .addCase(fetchConfig.pending, (state) => { state.status = 'loading' })
+      .addCase(fetchConfig.pending, state => {
+        state.status = 'loading'
+      })
       .addCase(fetchConfig.fulfilled, (state, action) => {
         state.status = 'succeeded'
         state.data = action.payload
