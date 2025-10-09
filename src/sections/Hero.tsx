@@ -18,9 +18,9 @@ export default function Hero() {
         <div className="absolute inset-0 bg-black/35" />
       </div>
       <motion.div style={{ y, opacity }} className="relative z-10 mx-auto max-w-3xl text-center px-6">
-        <div className="flex items-center justify-center"><Logo height={40} /></div>
-        <h1 className="mt-5 text-4xl md:text-5xl font-semibold drop-shadow-sm">{config.tagline}</h1>
-        <p className="mt-4 text-lg text-white/90">{config.aboutShort}</p>
+        <div className="flex items-center justify-center"></div>
+        <h1 className="mt-5 text-4xl md:text-5xl font-semibold drop-shadow-sm">Универсальные решения для вашего бизнеса.</h1>
+        <p className="mt-4 text-lg text-white/90">Стратегический партнер в мире оптовой торговли.</p>
       </motion.div>
     </section>
   )

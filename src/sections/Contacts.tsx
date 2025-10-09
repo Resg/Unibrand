@@ -5,7 +5,7 @@ export default function Contacts() {
   const config = useConfig()!
   const c = config.sections.contacts
   return (
-    <section id="contacts" className="relative bg-cover bg-center py-20 text-white" style={{ backgroundImage: `url('/images/directions/logistics-photo.jpg')` }}>
+    <section id="contacts" className="relative bg-cover bg-center py-20 text-white" style={{ backgroundImage: `url('/images/bg-map-skolkovo.jpg')` }}>
       <div className="absolute inset-0 bg-black/60" />
       <div className="relative z-10 mx-auto max-w-6xl px-6">
         <h2 className="text-3xl font-semibold text-brand">Контакты</h2>
@@ -54,7 +54,7 @@ export default function Contacts() {
             </ul>
           </div>
           <div className="rounded-2xl bg-white/95 p-6 text-slate-800 shadow-lg backdrop-blur">
-            <h3 className="text-xl font-semibold text-slate-900">Напишите нам</h3>
+            <h3 className="text-xl font-semibold text-slate-900">Обратная связь</h3>
             <form className="mt-4 space-y-4" onSubmit={(e) => e.preventDefault()}>
               <div>
                 <label className="block text-sm text-slate-600">Имя</label>
@@ -75,7 +75,7 @@ export default function Contacts() {
                 <textarea className="mt-1 w-full rounded-xl border border-gray-200 px-4 py-3 outline-none focus:ring-2 focus:ring-brand" rows={4} placeholder="Кратко опишите запрос"></textarea>
               </div>
               <button className="w-full rounded-xl bg-brand px-5 py-3 font-medium text-white hover:opacity-90 transition">Отправить</button>
-              <p className="text-xs text-slate-500">Нажимая «Отправить», вы соглашаетесь с обработкой персональных данных.</p>
+              <p className="text-xs text-slate-500">Нажимая на кнопку «Отправить», вы даете свое согласие на обработку и использование ваших персональных данных.</p>
             </form>
           </div>
         </div>

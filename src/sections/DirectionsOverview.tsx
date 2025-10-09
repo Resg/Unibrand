@@ -15,9 +15,9 @@ export default function DirectionsOverview() {
                 <img src={it.image} alt={it.title} className="h-full w-full object-cover transition duration-300 group-hover:scale-105" />
                 <div className="hover-dim absolute inset-0" />
               </div>
-              <div className="p-5">
-                <div className="text-lg font-semibold text-slate-900">{it.title}</div>
-                {it.lead && <p className="mt-1 text-sm text-slate-600">{it.lead}</p>}
+              <div className="p-5 bg-[#0aafdc] text-center">
+                <div className="text-lg font-semibold text-white">{it.title}</div>
+                {it.lead && <p className="mt-1 text-sm text-white/90">{it.lead}</p>}
               </div>
             </a>
           ))}

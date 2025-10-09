@@ -1,85 +1,43 @@
 import React from 'react'
-import { useConfig } from '../store/hooks'
 
 export default function Footer() {
-  const config = useConfig()!
-  const c = config.sections.contacts
+    return (
+        <footer className="bg-white text-slate-700 py-10">
+            <div className="mx-auto max-w-6xl px-6 grid grid-cols-1 md:grid-cols-[1fr_1.5fr_1fr] gap-8 items-start">
 
-  return (
-    <footer className="border-t border-slate-200 bg-white py-10 text-sm text-slate-600">
-      <div className="mx-auto max-w-6xl px-6 grid grid-cols-1 gap-8 md:grid-cols-[0.5fr,_1fr,_1fr]">
+                {/* Навигация */}
+                <div>
+                    <h3 className="font-semibold text-slate-900 mb-2">Навигация</h3>
+                    <ul className="space-y-1 text-sm leading-relaxed">
+                        <li><a href="#about" className="hover:text-brand">О компании</a></li>
+                        <li><a href="#directions" className="hover:text-brand">Направления</a></li>
+                        <li><a href="#brands" className="hover:text-brand">Бренды</a></li>
+                        <li><a href="#contacts" className="hover:text-brand">Контакты</a></li>
+                    </ul>
+                </div>
 
+                {/* Контакты — шире, чтобы адрес меньше переносился */}
+                <div className="min-w-[340px]">
+                    <h3 className="font-semibold text-slate-900 mb-2">Контакты</h3>
+                    <p className="text-sm leading-snug">
+                        <strong>Телефон:</strong> 8 (495) 363 03 50<br />
+                        <strong>Почта:</strong>{' '}
+                        <a href="mailto:info@unibrand.ru" className="text-brand hover:underline">info@unibrand.ru</a><br />
+                        <strong>Адрес:</strong> г. Москва, Муниципальный округ Можайский, территория Сколково инновационного центра, Большой бульвар, д. 40, этаж 5, ком. 128
+                    </p>
+                </div>
 
-        {/* Navigation */}
-        <nav className="flex flex-col space-y-2">
-          <div className="text-slate-900 font-semibold">Навигация</div>
-          <a href="#about" className="hover:text-brand">О компании</a>
-          <a href="#directions" className="hover:text-brand">Направления</a>
-          <a href="#trade" className="hover:text-brand">Оптовая торговля</a>
-          <a href="#logistics" className="hover:text-brand">Складская логистика</a>
-          <a href="#fulfillment" className="hover:text-brand">Фулфилмент</a>
-          <a href="#brands" className="hover:text-brand">Бренды</a>
-          <a href="#contacts" className="hover:text-brand">Контакты</a>
-        </nav>
+                {/* Юридическая информация */}
+                <div className="text-sm leading-relaxed text-slate-600">
+                    <h3 className="font-semibold text-slate-900 mb-2">ООО «ЮНИБРЕНД»</h3>
+                    <p>© 2025 ООО «ЮНИБРЕНД».</p>
+                    <p>Информация на сайте не является публичной офертой.</p>
+                </div>
+            </div>
 
-        {/* Contacts in two columns with black icons */}
-        <div>
-          <div className="text-slate-900 font-semibold mb-3">Контакты</div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-0">
-            {/* Phone */}
-            <div className="flex items-start gap-3">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-slate-800 mt-0.5" fill="none" stroke="currentColor" strokeWidth="1.6" viewBox="0 0 24 24">
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.77 19.77 0 0 1 3.15 9.81 19.77 19.77 0 0 1 .08 1.18 2 2 0 0 1 2.06 0h3a2 2 0 0 1 2 1.72c.12.9.3 1.78.54 2.63a2 2 0 0 1-.45 1.95L6 7a16 16 0 0 0 7 7l.7-.15a2 2 0 0 1 1.95.45c.85.24 1.73.42 2.63.54A2 2 0 0 1 22 16.92z" />
-              </svg>
-              <div>
-                <div className="text-slate-700 font-medium">Телефон</div>
-                <div>{c.phone}</div>
-              </div>
+            <div className="mx-auto max-w-6xl px-6 mt-6 text-xs text-slate-400">
+                Изображения на сайте частично сгенерированы с использованием ИИ.
             </div>
-            {/* Hours */}
-            <div className="flex items-start gap-3 col-[1]">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-slate-800 mt-0.5" fill="none" stroke="currentColor" strokeWidth="1.6" viewBox="0 0 24 24">
-                <circle cx="12" cy="12" r="10" />
-                <path d="M12 6v6l4 2" />
-              </svg>
-              <div>
-                <div className="text-slate-700 font-medium">Режим работы</div>
-                <pre className="whitespace-pre-wrap font-sans text-sm leading-relaxed">{c.hours}</pre>
-              </div>
-            </div>
-            {/* Address */}
-            <div className="flex items-start gap-3 col-[2] row-start-1 row-end-4">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-slate-800 mt-0.5" fill="none" stroke="currentColor" strokeWidth="1.6" viewBox="0 0 24 24">
-                <path d="M21 10c0 7-9 12-9 12S3 17 3 10a9 9 0 1 1 18 0Z" />
-                <circle cx="12" cy="10" r="3" />
-              </svg>
-              <div>
-                <div className="text-slate-700 font-medium">Адрес</div>
-                <pre className="whitespace-pre-wrap font-sans text-sm leading-relaxed">{c.address}</pre>
-              </div>
-            </div>
-            {/* Email */}
-            <div className="flex items-start gap-3 col-[1]">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-slate-800 mt-0.5" fill="none" stroke="currentColor" strokeWidth="1.6" viewBox="0 0 24 24">
-                <path d="M4 4h16v16H4z" />
-                <path d="m22 6-10 7L2 6" />
-              </svg>
-              <div>
-                <div className="text-slate-700 font-medium">Почта</div>
-                <a href={`mailto:${c.email}`} className="text-brand hover:underline">{c.email}</a>
-              </div>
-            </div>
-          </div>
-        </div>
-          {/* Company info */}
-          <div className="flex justify-center flex-col">
-              <div className="text-slate-900 font-semibold text-end">{config.companyName}</div>
-              <div className="mt-2 text-end">
-                  © {new Date().getFullYear()} {config.companyName}.<br />
-                  Информация на сайте не является публичной офертой.
-              </div>
-          </div>
-      </div>
-    </footer>
-  )
+        </footer>
+    )
 }
