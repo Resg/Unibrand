@@ -9,7 +9,7 @@ export default function Contacts() {
     <section
       id="contacts"
       className="relative bg-cover bg-no-repeat text-white py-20"
-      style={{ backgroundImage: `url('public${config.images.map}')` }}
+      style={{ backgroundImage: `url(${config.images?.map ?? '/images/map.jpg'})` }}
     >
       {/*<div className="absolute inset-0 bg-black/60"></div>*/}
       <div className="relative z-10 mx-auto max-w-6xl p-6 md:bg-brand rounded-3xl">
@@ -47,7 +47,7 @@ export default function Contacts() {
                 </svg>
                 <div>
                   <div className="text-slate-500 text-sm">Режим работы</div>
-                  <pre className="mt-1 whitespace-pre-wrap font-sans text-base leading-relaxed">
+                  <pre className="mt-1 whitespace-pre-wrap  text-base leading-relaxed">
                     {c.hours}
                   </pre>
                 </div>
@@ -66,7 +66,7 @@ export default function Contacts() {
                 </svg>
                 <div>
                   <div className="text-slate-500 text-sm">Адрес</div>
-                  <pre className="mt-1 whitespace-pre-wrap font-sans text-base leading-relaxed">
+                  <pre className="mt-1 whitespace-pre-wrap  text-base leading-relaxed">
                     {c.address}
                   </pre>
                 </div>
@@ -129,8 +129,16 @@ export default function Contacts() {
                 Отправить
               </button>
               <p className="text-xs text-slate-500">
-                Нажимая на кнопку «Отправить», вы даете свое согласие на обработку и использование
-                ваших персональных данных.
+                Нажимая на кнопку «Отправить», вы даёте своё согласие на обработку и использование
+                ваших персональных данных. Загрузить документ:{' '}
+                <a
+                  href={config.privacyPolicy || '/docs/Политика конфиденциальности ЮНИБРЕНД.pdf'}
+                  download
+                  className="underline"
+                >
+                  Политика конфиденциальности
+                </a>
+                .
               </p>
             </form>
           </div>

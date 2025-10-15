@@ -18,7 +18,7 @@ export default function Logo({ height = 28, className = '', showText = true }: P
       {showText && (
         <div className="flex items-baseline text-[1.2em] leading-none select-none">
           <span className="font-normal text-[#7D7D7D]">ЮНИ</span>
-          <span className="ml-[2px] font-semibold text-[#0AAFDC]">БРЕНД</span>
+          <span className="font-semibold text-[#0AAFDC]">БРЕНД</span>
         </div>
       )}
     </div>

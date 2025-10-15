@@ -17,12 +17,12 @@ export default function DirectionsOverview() {
         >
           Ключевые направления бизнеса
         </motion.h2>
-        <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
+        <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2 gap-y-12">
           {items.map(it => (
             <a
               key={it.id}
               href={`#${it.id}`}
-              className="group overflow-hidden rounded-2xl border bg-white shadow-sm transition hover:shadow-md"
+              className="group overflow-hidden rounded-2xl border bg-[#0aafdc] shadow-sm transition hover:shadow-md hover:scale-[1.02]"
             >
               <div className="relative aspect-[5/3] w-full overflow-hidden hover-zoom">
                 <img
@@ -32,9 +32,9 @@ export default function DirectionsOverview() {
                 />
                 <div className="hover-dim absolute inset-0" />
               </div>
-              <div className="p-5 bg-[#0aafdc] text-center">
+              <div className="p-5 text-center">
                 <div className="text-lg font-semibold text-white">{it.title}</div>
-                {it.lead && <p className="mt-1 text-sm text-white/90">{it.lead}</p>}
+                {it.lead && <p className="mt-1 text-sm text-white">{it.lead}</p>}
               </div>
             </a>
           ))}

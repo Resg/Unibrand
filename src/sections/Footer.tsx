@@ -28,6 +28,7 @@ export default function Footer() {
                 Контакты
               </a>
             </li>
+            {/*<li><a href="#contacts" className="hover:text-brand font-semibold">Работа у нас</a></li>*/}
           </ul>
         </div>
 
@@ -44,6 +45,11 @@ export default function Footer() {
           <p className="text-sm leading-snug mt-1">
             Адрес: г. Москва, Муниципальный округ Можайский, территория Сколково инновационного
             центра, Большой бульвар, д. 40, этаж 5, ком. 128
+          </p>
+          <p className="text-sm leading-snug mt-1">
+            <a href="#contacts" className="hover:text-brand font-semibold">
+              Работа у нас
+            </a>
           </p>
         </div>
 

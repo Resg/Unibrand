@@ -1,52 +1,63 @@
-/** @type {import('eslint').Linter.FlatConfig[]} */
+// eslint.config.js (ESLint 9, flat config)
 import js from '@eslint/js'
 import importPlugin from 'eslint-plugin-import'
-import prettier from 'eslint-plugin-prettier'
+import jsxA11y from 'eslint-plugin-jsx-a11y'
 import react from 'eslint-plugin-react'
 import reactHooks from 'eslint-plugin-react-hooks'
-import * as tseslint from 'typescript-eslint'
+import tseslint from 'typescript-eslint'
 
 export default [
-  // Ignored files & folders
-  {
-    ignores: ['node_modules', 'dist', 'build', 'coverage', 'tsconfig.tsbuildinfo'],
-  },
-
-  // Base recommended rules (JS)
+  { ignores: ['dist/', 'build/', 'node_modules/', 'coverage/'] },
   js.configs.recommended,
-
-  // TypeScript recommended (no type-checking for speed)
+  // Без тяжёлой тип-проверки; если нужна с project, замени на recommendedTypeChecked
   ...tseslint.configs.recommended,
 
-  // Project rules
   {
-    files: ['**/*.{js,jsx,ts,tsx}'],
+    files: ['**/*.{ts,tsx,js,jsx}'],
     languageOptions: {
-      parser: tseslint.parser,
+      ecmaVersion: 2023,
+      sourceType: 'module',
       parserOptions: {
-        ecmaVersion: 'latest',
-        sourceType: 'module',
-        ecmaFeatures: { jsx: true },
+        // для type-checked конфигов добавь:
+        // project: ['./tsconfig.json'],
+        // tsconfigRootDir: import.meta.dirname,
       },
     },
     plugins: {
       react,
       'react-hooks': reactHooks,
-      prettier,
       import: importPlugin,
+      'jsx-a11y': jsxA11y,
     },
     settings: {
       react: { version: 'detect' },
-      'import/resolver': { typescript: true },
+      'import/resolver': {
+        typescript: { project: ['./tsconfig.json'] },
+        node: { extensions: ['.js', '.jsx', '.ts', '.tsx'] },
+      },
     },
     rules: {
-      'prettier/prettier': 'warn',
       'react/react-in-jsx-scope': 'off',
-      'react/prop-types': 'off',
+      'react/jsx-uses-react': 'off',
+      'react-hooks/rules-of-hooks': 'error',
+      'react-hooks/exhaustive-deps': 'warn',
+      // примеры правил import-плагина
       'import/order': [
         'warn',
-        { 'newlines-between': 'always', alphabetize: { order: 'asc', caseInsensitive: true } },
+        {
+          groups: [
+            ['builtin', 'external'],
+            ['internal', 'parent', 'sibling', 'index', 'object', 'type'],
+          ],
+          'newlines-between': 'always',
+          alphabetize: { order: 'asc', caseInsensitive: true },
+          // Если используешь алиасы наподобие "@/*":
+          pathGroups: [{ pattern: '@/**', group: 'internal', position: 'after' }],
+          pathGroupsExcludedImportTypes: ['builtin'],
+          warnOnUnassignedImports: true,
+        },
       ],
+      'import/no-unresolved': 'off', // обычно решает resolver
     },
   },
 ]

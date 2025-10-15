@@ -32,11 +32,9 @@ export default function Hero() {
       >
         <div className="flex items-center justify-center"></div>
         <h1 className="mt-5 text-4xl md:text-5xl font-semibold drop-shadow-sm">
-          Универсальные решения для вашего бизнеса.
+          Экосистема для вашего бизнеса
         </h1>
-        <p className="mt-4 text-lg text-white/90">
-          Стратегический партнер в мире оптовой торговли.
-        </p>
+        <p className="text-xl mt-3">Лучший стратегический партнёр в мире ритейла</p>
       </motion.div>
     </section>
   )

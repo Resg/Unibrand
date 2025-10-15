@@ -1,19 +1,27 @@
-export type DirectionID = 'trade' | 'logistics' | 'fulfillment'
+// src/types/config.ts
 
-export interface DirectionOverviewItem {
-  id: DirectionID
-  title: string
-  image: string
-  lead?: string
-}
+// --- Контент внутри детальных блоков ---
+export type RichItem =
+  | { type: 'p'; text: string }
+  | { type: 'p_bold'; text: string }
+  | { type: 'ul'; items: string[] }
 
 export interface DirectionDetail {
-  id: DirectionID
+  id: string
   title: string
-  image: string
-  text: string
+  text?: string
+  image?: string
+  rich?: RichItem[]
+}
+
+// --- Краткие карточки направлений (для "Ключевые направления бизнеса") ---
+export type DirectionOverviewId = 'distribution' | 'logistics' | 'transport' | 'fulfillment'
+
+export interface DirectionOverviewItem {
+  id: DirectionOverviewId
+  title: string
   lead?: string
-  bullets?: string[]
+  image?: string
 }
 
 export interface Brand {
@@ -21,29 +29,46 @@ export interface Brand {
   logo: string
 }
 
-export interface Contacts {
-  phone: string
-  email: string
-  address: string
-  hours: string
-}
-
+// --- Секции сайта ---
 export interface Sections {
   directionsOverview: { items: DirectionOverviewItem[] }
+
+  // ВАЖНО: ключи должны соответствовать тому, что используется в коде
   directionsDetail: {
-    trade: DirectionDetail
+    distribution: DirectionDetail // было trade → теперь distribution
     logistics: DirectionDetail
+    transport: DirectionDetail
     fulfillment: DirectionDetail
+
+    // опционально оставим для обратной совместимости
+    trade?: DirectionDetail
   }
+
+  // Если у тебя есть строго описанные типы для других секций — подставь их,
   brands: Brand[]
-  contacts: Contacts
+  // иначе оставим any, чтобы не блокировать сборку
+  contacts?: unknown
+  // about?: any;
+  // и т.д.
 }
 
+// --- Весь конфиг сайта ---
 export interface Config {
-  companyName: string
+  companyName?: string
   tagline: string
-  aboutShort: string
-  about: string
+  aboutShort?: string
+  about?: string
+
+  /** Путь к PDF «Политика конфиденциальности» */
+  privacyPolicy?: string
+  images: {
+    map: string
+    [key: string]: string | undefined
+  }
+
+  ui?: {
+    brandsLogoScale?: number
+  }
+
   sections: Sections
-  images: Record<string, string>
 }

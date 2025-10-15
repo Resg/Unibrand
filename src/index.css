@@ -1,3 +1,20 @@
+/* Local Roboto (variable) */
+@font-face {
+  font-family: 'Roboto';
+  src: url('/fonts/roboto/Roboto-Variable.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url('/fonts/roboto/Roboto-Variable-Italic.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+/* End Local Roboto */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -15,4 +32,11 @@ html {
 /* Offset anchored sections to account for sticky header height */
 section[id] {
   scroll-margin-top: 96px;
+}
+
+/* Ensure global font */
+@layer base {
+  body {
+    font-family: 'Roboto', system-ui, sans-serif; /* Visible in DevTools */
+  }
 }

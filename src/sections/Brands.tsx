@@ -14,13 +14,13 @@ export default function Brands() {
           бренда, поэтому сотрудничаем только с производителями, чья репутация и динамика роста не
           вызывают сомнений.
         </p>
-        <div className="mt-8 flex gap-6 overflow-x-auto justify-around no-scrollbar py-2">
+        <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
           {brands.map(b => (
             <div
               key={b.logo}
-              className="flex-shrink-0 flex items-center justify-center rounded-xl bg-white p-4 shadow w-24 h-20 lg:max-w-[calc(10%-1.5rem)] "
+              className="rounded-2xl overflow-hidden bg-white p-4 shadow w-40 h-28 md:w-44 md:h-32 lg:w-48 lg:h-36 flex items-center justify-center"
             >
-              <img src={b.logo} alt={b.name} className=" object-contain" />
+              <img src={b.logo} alt={b.name} className="object-contain p-2 scale-110" />
             </div>
           ))}
         </div>
